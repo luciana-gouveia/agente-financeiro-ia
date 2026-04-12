@@ -1,0 +1,6 @@
+categoria,valor
+Alimentação,500
+Transporte,300
+Lazer,200
+Saúde,150
+Educação,400

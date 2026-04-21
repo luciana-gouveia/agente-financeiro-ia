@@ -14,34 +14,30 @@ Este projeto permite visualizar e analisar gastos de forma simples e rápida, al
 
 📈 **Resumo financeiro automático**
 
-  * Total gasto
-  * Maior valor
-  * Quantidade de registros
+* Total gasto
+* Maior valor
+* Quantidade de registros
 
 📊 **Visualização de dados**
 
-  * Gráfico de rosca por categoria
-  * Gráfico de barras
+* Gráfico de rosca por categoria
+* Gráfico de barras
 
 🤖 **Assistente com IA**
 
-  * Responde perguntas sobre os dados
-  * Gera insights básicos
+* Responde perguntas sobre os dados
+* Gera insights básicos
 
 🎨 **Interface moderna**
 
-  * Compatível com modo claro e escuro
-  * Layout responsivo
+* Compatível com modo claro e escuro
+* Layout responsivo
 
 ---
 
 ## 🖼️ Preview
 
 ![Dashboard](assets/dashboard.png)
-
-```id="bq1r9m"
-assets/dashboard.png
-```
 
 ---
 

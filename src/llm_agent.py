@@ -1,17 +1,36 @@
-from openai import OpenAI
+import google.generativeai as genai
 import os
 from dotenv import load_dotenv
 
+# Carrega a chave da API do arquivo .env
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# Configura a conexão com o Google
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-def responder(pergunta, contexto=""):
-    resposta = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": "Você é um assistente financeiro simples e direto."},
-            {"role": "user", "content": f"{contexto}\nPergunta: {pergunta}"}
-        ]
-    )
-    return resposta.choices[0].message.content
+def responder(pergunta, contexto):
+    try:
+        # Usando o modelo da sua lista (ajustado para 2026)
+        model = genai.GenerativeModel('gemini-3.1-flash-image-preview')
+        
+        prompt = f"""
+        Você é um consultor financeiro pessoal de 2026. 
+        Analise os dados abaixo e responda de forma curta, útil e amigável.
+        
+        DADOS DO USUÁRIO:
+        {contexto}
+        
+        PERGUNTA:
+        {pergunta}
+        
+        Dica: Se o usuário estiver gastando muito, sugira uma economia específica.
+        """
+        
+        response = model.generate_content(prompt)
+        return response.text
+        
+    except Exception as e:
+        # Tratamento amigável para o erro de cota (429)
+        if "429" in str(e):
+            return "O Google pausou as requisições gratuitas por 60 segundos. Respire fundo e tente de novo em um minuto! ☕"
+        return f"Erro na IA: {e}"

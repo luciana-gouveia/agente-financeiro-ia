@@ -102,7 +102,7 @@ else:
                 margin=dict(t=0, b=0, l=0, r=0),
                 paper_bgcolor='rgba(0,0,0,0)'
             )
-            st.plotly_chart(fig_pie, use_container_width=True)
+            st.plotly_chart(fig_pie, width='stretch')
 
         with g2:
             fig_bar = px.bar(
@@ -114,7 +114,7 @@ else:
                 paper_bgcolor='rgba(0,0,0,0)',
                 plot_bgcolor='rgba(0,0,0,0)'
             )
-            st.plotly_chart(fig_bar, use_container_width=True)
+            st.plotly_chart(fig_bar, width='stretch')
 
     elif menu == "Assistente":
         st.header("Assistente")
